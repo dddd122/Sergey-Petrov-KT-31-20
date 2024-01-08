@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
-//using static SergeyPetrovKT_31_20.ServiceExtensions.ServiceExtensions;
+using static SergeyPetrovKT_31_20.ServiceExtensions.ServiceExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,10 +25,10 @@ try
     builder.Configuration.GetSection(nameof(SerDbContext)));
     IServiceCollection serviceCollection = builder.Services.AddDbContext<DbContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-    //  builder.Services.AddScoped<IDataAccessProvider, DataAccessProvider>();
-    // builder.Services.AddDbContext<MakarovDbContext>(options => 
-    //options.UseNpgsql(builder.Configuration.GetConnectionString("DefultConnection")));
-  //  builder.Services.AddScoped<IStudentService, StudentFilterService>();
+      //builder.Services.AddScoped<IDataAccessProvider, DataAccessProvider>();
+    builder.Services.AddDbContext<SerDbContext>(options => 
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefultConnection")));
+   builder.Services.AddScoped<IStudentService, StudentFilterService>();
     builder.Services.AddService();
     var app = builder.Build();
     // Configure the HTTP request pipeline.
