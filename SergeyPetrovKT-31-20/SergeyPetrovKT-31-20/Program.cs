@@ -23,11 +23,11 @@ try
     builder.Services.AddSwaggerGen();
     builder.Services.Configure<SerDbContext>(
     builder.Configuration.GetSection(nameof(SerDbContext)));
-    IServiceCollection serviceCollection = builder.Services.AddDbContext<DbContext>(options =>
+    IServiceCollection serviceCollection = builder.Services.AddDbContext<SerDbContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
       //builder.Services.AddScoped<IDataAccessProvider, DataAccessProvider>();
-    builder.Services.AddDbContext<SerDbContext>(options => 
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefultConnection")));
+   // builder.Services.AddDbContext<SerDbContext>(options => 
+   // options.UseNpgsql(builder.Configuration.GetConnectionString("DefultConnection")));
    builder.Services.AddScoped<IStudentService, StudentFilterService>();
     builder.Services.AddService();
     var app = builder.Build();
