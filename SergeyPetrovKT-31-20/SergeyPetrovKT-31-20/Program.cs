@@ -1,6 +1,6 @@
 using SergeyPetrovKT_31_20.Database;
 using SergeyPetrovKT_31_20.interfaces.StudentInterfaces;
-//using SergeyPetrovKT_31_20.Middlewares;
+using SergeyPetrovKT_31_20.Middleware;
 using SergeyPetrovKT_31_20.ServiceExtensions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
@@ -38,7 +38,7 @@ options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")
         app.UseSwaggerUI();
     }
 
-    app.UseMiddleware<ExceptionHandlerMiddleware>();
+    app.UseMiddleware<SergeyPetrovKT_31_20.Middleware.ExceptionHandlerMiddleware>();
 
     app.UseAuthorization();
 

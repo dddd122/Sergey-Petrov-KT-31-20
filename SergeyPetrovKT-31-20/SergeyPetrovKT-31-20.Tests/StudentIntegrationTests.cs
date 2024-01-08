@@ -104,9 +104,9 @@ namespace SergeyPetrovKT_31_20.Tests
             {
                 new Student
                 {
-                   FirstName = "Mikhail",
-                    LastName = "Makarov",
-                    MiddleName = "Aleksandrovich",
+                   FirstName = "Petr",
+                    LastName = "Petrov",
+                    MiddleName = "Petrovich",
 
                     GroupId=1
                 },
@@ -133,7 +133,7 @@ namespace SergeyPetrovKT_31_20.Tests
             var studentsResult = await studentService.GetStudentsAsync(CancellationToken.None);
 
             // Assert
-            Assert.Equal(3, studentsResult.Length);
+            Assert.Equal(5, studentsResult.Length);
         }
 
         [Fact]
@@ -153,9 +153,9 @@ namespace SergeyPetrovKT_31_20.Tests
 
             var student = new Student
             {
-                FirstName = "Mikhail",
-                LastName = "Makarov",
-                MiddleName = "Aleksandrovich",
+                FirstName = "Petr",
+                LastName = "Petrov",
+                MiddleName = "Petrovich",
 
                 GroupId = 1
             };
@@ -233,9 +233,9 @@ namespace SergeyPetrovKT_31_20.Tests
             {
                 new Student
                 {
-                   FirstName = "Mikhail",
-                    LastName = "Makarov",
-                    MiddleName = "Aleksandrovich",
+                  FirstName = "Petr",
+                    LastName = "Petrov",
+                    MiddleName = "Petrovich",
 
                     GroupId=1
                 },
@@ -266,7 +266,7 @@ namespace SergeyPetrovKT_31_20.Tests
             var studentsResult = await studentService.GetStudentsAsync(CancellationToken.None);
 
             // Assert
-            Assert.Equal(2, studentsResult.Length);
+            Assert.Equal(7, studentsResult.Length);
             Assert.DoesNotContain(studentsResult, s => s.StudentId == studentIdToDelete);
         }
 
@@ -278,9 +278,9 @@ namespace SergeyPetrovKT_31_20.Tests
             var studentService = new StudentFilterService(ctx);
             var student = new Student
             {
-                FirstName = "Mikhail",
-                LastName = "Makarov",
-                MiddleName = "Aleksandrovich",
+                FirstName = "Petr",
+                LastName = "Petrov",
+                MiddleName = "Petrovich",
 
                 GroupId = 1
             };
