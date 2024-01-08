@@ -1,7 +1,7 @@
 using SergeyPetrovKT_31_20.Database;
-//using SergeyPetrovKT_31_20.interfaces.StudentInterfaces;
+using SergeyPetrovKT_31_20.interfaces.StudentInterfaces;
 //using SergeyPetrovKT_31_20.Middlewares;
-//using SergeyPetrovKT_31_20.ServiceExtensions;
+using SergeyPetrovKT_31_20.ServiceExtensions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using NLog;
@@ -29,7 +29,7 @@ options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")
     // builder.Services.AddDbContext<MakarovDbContext>(options => 
     //options.UseNpgsql(builder.Configuration.GetConnectionString("DefultConnection")));
   //  builder.Services.AddScoped<IStudentService, StudentFilterService>();
-  //  builder.Services.AddService();
+    builder.Services.AddService();
     var app = builder.Build();
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
